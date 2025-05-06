@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Meiisya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .heart {
+            position: relative;
+            width: 200px;
+            height: 180px;
+            margin: 0 auto 40px;
+            transform-origin: center;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 190px;
+            background: #ff5b8d;
+            border-radius: 120px 120px 0 0;
+        }
+
+        .heart:before {
+            left: 80px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .message {
+            opacity: 0;
+            transform: translateY(20px);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 90%;
+            margin: 0 auto;
+            color: #333;
+            animation: appear 1s ease-in-out forwards 1s;
+        }
+
+        h1 {
+            color: #ff5b8d;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .special {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #ff5b8d;
+            display: block;
+            margin: 20px 0;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0;
+            animation: twinkle 5s infinite;
+        }
+
+        button {
+            background: #ff5b8d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 91, 141, 0.4);
+            margin-top: 15px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 91, 141, 0.6);
+        }
+
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #ff5b8d;
+            font-size: 1.5rem;
+            animation: float 10s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes appear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .heart {
+                width: 150px;
+                height: 135px;
+            }
+            
+            .heart:before, .heart:after {
+                width: 90px;
+                height: 142px;
+            }
+            
+            .heart:before {
+                left: 60px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .special {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="heart"></div>
+        <div class="message">
+            <h1>Untuk Meiisya-ku</h1>
+            <p>Setiap detak jantungku membisikkan namamu. Setiap nafasku menggambarkan betapa indahnya hidupku bersamamu.</p>
+            <span class="special">Cintaku padamu seperti bintang di langit, tak terhitung jumlahnya dan akan bersinar selamanya.</span>
+            <p>Kau adalah segalanya bagiku. Kau adalah alasanku tersenyum di pagi hari dan mimpi indahku setiap malam.</p>
+            <button id="love-btn">Klik Aku</button>
+        </div>
+    </div>
+    
+    <div class="stars"></div>
+    <div class="floating-hearts"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create stars
+            const stars = document.querySelector('.stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                stars.appendChild(star);
+            }
+
+            // Button click event
+            const loveBtn = document.getElementById('love-btn');
+            loveBtn.addEventListener('click', function() {
+                createHeartShower();
+                playMelody();
+                
+                // Change message
+                const message = document.querySelector('.message p:last-of-type');
+                message.innerHTML = "I love you more than words can express. You are my sunshine, my everything, and I promise to love you forever and always. <br><br> Will you continue to be my forever love?";
+                
+                // Add special class for animation
+                message.classList.add('special');
+            });
+
+            // Create floating hearts
+            const floatingHearts = document.querySelector('.floating-hearts');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                floatingHearts.appendChild(heart);
+                
+                // Remove after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }, 1000);
+        });
+
+        // Heart shower function
+        function createHeartShower() {
+            const container = document.querySelector('.container');
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤';
+                    heart.style.position = 'absolute';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.color = `hsl(${340 + Math.random() * 30}, 100%, 60%)`;
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '-20px';
+                    heart.style.animation = `float ${Math.random() * 5 + 5}s linear forwards`;
+                    heart.style.opacity = '0';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 6000);
+                }, i * 100);
+            }
+        }
+
+        // Simple melody function using Web Audio API
+        function playMelody() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const audioCtx = new AudioContext();
+                
+                const notes = [
+                    { note: 'C4', duration: 0.5 },
+                    { note: 'D4', duration: 0.5 },
+                    { note: 'E4', duration: 0.5 },
+                    { note: 'G4', duration: 1 },
+                    { note: 'E4', duration: 0.5 },
+                    { note: 'G4', duration: 1.5 }
+                ];
+                
+                const frequencies = {
+                    'C4': 261.63,
+                    'D4': 293.66,
+                    'E4': 329.63,
+                    'G4': 392.00
+                };
+                
+                let time = audioCtx.currentTime;
+                
+                notes.forEach(noteObj => {
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    
+                    oscillator.type = 'sine';
+                    oscillator.frequency.value = frequencies[noteObj.note];
+                    
+                    gainNode.gain.setValueAtTime(0.3, time);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, time + noteObj.duration);
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    
+                    oscillator.start(time);
+                    oscillator.stop(time + noteObj.duration);
+                    
+                    time += noteObj.duration;
+                });
+            } catch (e) {
+                console.log('Web Audio API not supported');
+            }
+        }
+    </script>
+</body>
+</html>
